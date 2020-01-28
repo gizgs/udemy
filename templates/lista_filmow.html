@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'moj.css' %}">
+</head>
+<body>
+    <p>Tu bedzie lista filmow</p>
+
+    <h3>{{text}}</h3>
+
+
+
+    <div>
+        {% for film in filmy %}
+            <h2>{{film.name}}</h2>
+            <p>{{film.description}}</p>
+        {% endfor %}
+    </div>
+
+
+
+
+</body>
+</html>
