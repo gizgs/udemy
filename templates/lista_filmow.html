@@ -11,12 +11,17 @@
 
     <h3>{{text}}</h3>
 
-
+    <a href="{% url 'nowy_film' %}">Nowy film</a>
 
     <div>
         {% for film in filmy %}
             <h2>{{film.name}}</h2>
             <p>{{film.description}}</p>
+            <a href="{% url 'edytuj_film' film.id %}">Edytuj</a>
+            <a href="{% url 'usun_film' film.id %}">Usuń</a>
+
+
+
         {% endfor %}
     </div>
 

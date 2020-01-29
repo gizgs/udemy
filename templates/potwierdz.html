@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Czy na pewno chcesz usunac {{film.name}} ??</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Tak</button>
+    </form>
+</body>
+</html>
