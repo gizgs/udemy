@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Movie
@@ -5,10 +6,18 @@ from .forms import MovieForm
 
 
 # Create your views here.
+@login_required
 def wszystkie_filmy(request):
-    filmy = Movie.objects.all()
-    return render(request, 'lista_filmow.html', {'filmy':filmy})
-
+    user1 = request.user.id
+    if user1 == 1:
+        filmy = Movie.objects.all()
+        user = request.user
+        return render(request, 'lista_filmow.html', {'filmy':filmy, 'user': user})
+    else:
+        filmy = Movie.objects.filter(id_user=request.user)
+        user = request.user
+        return render(request, 'lista_filmow.html', {'filmy':filmy, 'user': user})
+@login_required
 def nowy_film(request):
     form = MovieForm(request.POST or None, request.FILES or None)
     if form.is_valid():
