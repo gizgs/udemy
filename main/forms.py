@@ -6,3 +6,4 @@ class MovieForm(ModelForm):
     class Meta:
         model = Movie
         fields = ['name', 'description', 'year', 'released', 'imdb_rating', 'photo']
+        exclude = ['id_user']

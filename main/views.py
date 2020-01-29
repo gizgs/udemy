@@ -12,6 +12,8 @@ def wszystkie_filmy(request):
 def nowy_film(request):
     form = MovieForm(request.POST or None, request.FILES or None)
     if form.is_valid():
+        film = form.save(commit=False)
+        film.id_user = request.user
         form.save()
         return redirect(wszystkie_filmy)
 
