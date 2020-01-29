@@ -6,6 +6,9 @@ from .forms import MovieForm
 
 
 # Create your views here.
+def login(request):
+    return render(request, 'login.html')
+
 @login_required
 def wszystkie_filmy(request):
     user1 = request.user.id
