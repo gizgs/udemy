@@ -16,3 +16,8 @@ class Movie(models.Model):
 
     def name_with_year(self):
         return str(self.name) + " (" + str(self.year) + ")"
+
+class Place (models.Model):
+    CITY_CHOICES = (('Żagań', 'Żagań'),
+    ('Kielce', 'Kielce'))
+    city = models.CharField(max_length=20, choices=CITY_CHOICES)
